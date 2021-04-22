@@ -1,10 +1,11 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Link } from 'react-router-dom';
 
-const DashboardGridItem = ({gridName, gridIcon}) => {
+const DashboardGridItem = ({gridName, gridIcon, path}) => {
     return (
         <div className='dashboardGrid'>
-            <FontAwesomeIcon icon={gridIcon}/>
+            <Link to={path}><FontAwesomeIcon icon={gridIcon}/></Link>
             <p>{gridName}</p>
         </div>
     )
