@@ -5,13 +5,14 @@ import '../css/dashboardCss.css';
 
 const DashboardLayout = () => {
     const layoutInfo = [
-        { icon: 'icon1', itemName:'About' },
-        { icon: 'icon2', itemName:'Projects' },
-        { icon: 'icon3', itemName:'Blogs' }
+        { icon: 'user', itemName:'About' },
+        { icon: 'project-diagram', itemName:'Projects' },
+        { icon: 'book-open', itemName:'Blogs' },
     ]
     return (
         <div className='dashboardLayout'>{layoutInfo.map(info =>(
             <DashboardGridItem gridName={info.itemName} gridIcon={info.icon}/>
+            
         ))}</div>
     )
 }
