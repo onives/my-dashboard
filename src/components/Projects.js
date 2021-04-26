@@ -1,5 +1,7 @@
 import React from 'react';
-import '../css/dashboardCss.css';
+import {Button} from './Button'
+
+import '../css/forms.css';
 
 const Projects = () => {
 
@@ -7,16 +9,17 @@ const Projects = () => {
         <div>
             <h2>Enter new Project</h2>
             <form id='project_form'>
-                <label>Upload Image </label>
+                <label>Upload project Image: </label>
                 <input type='file'/>
-                <label>Project Tile </label>
+                <label>Project Tile: </label>
                 <input type='text' placeholder='type here' />
-                <label>Project paragraph </label>
+                <label>Project paragraph: </label>
                 <input type='text' placeholder='type here' />
-                <label>Github link </label>
+                <label>Github link: </label>
                 <input type='text' placeholder='type here' />
-                <label>Website link </label>
+                <label>Website link: </label>
                 <input type='text' placeholder='type here' />
+                <Button buttonStyle='btn--solid' buttonSize='btn--medium' type='button'>Github</Button>
             </form>
         </div>
 

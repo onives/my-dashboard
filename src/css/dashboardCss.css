@@ -17,13 +17,5 @@
     
 }
 
-.project_form{
-  width: 80%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-}
 
-.project_form > input{
-  border: 2px solid black;
-}
+

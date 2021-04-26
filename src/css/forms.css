@@ -1,7 +1,13 @@
-.project_form{
+#project_form, #blog_form{
     width: 80%;
     margin: auto;
     display: flex;
     flex-direction: column;
+    text-align: left;
 }
+#project_form > input, #blog_form > input{
+    padding: 8px;
+    margin: 12px 2px;
+  }
+  
 
