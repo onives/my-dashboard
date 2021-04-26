@@ -1,4 +1,29 @@
-.dashboardLayout{
+.dashboardNav{
+  background-color: rgb(41, 40, 40);
+  display: flex;
+  justify-content: space-around;
   
-    /* code here */
+}
+
+.nav-links li{
+    display: inline; 
+    color: white !important;
+   
+    
+}
+
+.nav-links{
+    
+    
+}
+
+.project_form{
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.project_form > input{
+  border: 2px solid black;
 }

@@ -2,12 +2,11 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom';
 
-const DashboardGridItem = ({gridName, gridIcon, path}) => {
+const DashboardGridItem = ({ gridName, gridIcon, path }) => {
     return (
-        <div className='dashboardGrid'>
-            <Link to={path}><FontAwesomeIcon icon={gridIcon}/></Link>
-            <p>{gridName}</p>
-        </div>
+            <ul className='nav-links'>
+                <Link to={path}><li>{gridName}</li> <FontAwesomeIcon icon={gridIcon} /></Link> 
+            </ul>
     )
 }
 
