@@ -1,13 +1,21 @@
-#project_form, #blog_form{
-    width: 80%;
+.layout_div{
+    margin: 0;
+    padding: 0;
+}
+.layout_title{
+    text-align: center;
+}
+.form_div{
+    width: 90%;
     margin: auto;
+}
+.input-div{
     display: flex;
     flex-direction: column;
     text-align: left;
+    margin: 15px 0px;
 }
-#project_form > input, #blog_form > input{
-    padding: 8px;
-    margin: 12px 2px;
-  }
-  
+.input-div > label{
+    margin-bottom: 0.8rem;
+}
 
