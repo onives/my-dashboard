@@ -1,42 +1,38 @@
 import React, { useState } from "react";
-import Blogs from "./Blogs";
+import Projects from "./Projects";
 import TableData from "./generics/TableData";
 import "../css/forms.css";
 import "../css/table.css";
 
-const current_blogs = [
+const current_projects = [
   {
     image: "nn.png",
     title: "title1",
     description: "description 1",
-    link: "link1",
+    githubLink: "link1",
+    siteLink: "link22"
   },
   {
     image: "njj.png",
     title: "title2",
     description: "description 2",
-    link: "link2",
+    githubLink: "link2",
+    siteLink: "link33"
   },
-  {
-    image: "ndd.png",
-    title: "title3",
-    description: "description 3",
-    link: "link3",
-  },
+
 ];
 const BlogLayout = () => {
-  const [blogs, setBlogs] = useState(current_blogs);
+  const [projects, setProjects] = useState(current_projects);
 
-  const handleBlogSave = (enteredBlogData) => {
-    //   setBlogs([enteredBlogData, ...blogs])
-    setBlogs((prevBlogs) => {
-      return [enteredBlogData, ...prevBlogs];
+  const handleProjectSave = (enteredProjectData) => {
+    setProjects((prevProjects) => {
+      return [enteredProjectData, ...prevProjects];
     });
   };
 
   return (
     <div>
-      <Blogs onBlogSave={handleBlogSave} />
+      <Projects onProjectSave={handleProjectSave} />
       <div className="tabula-data">
         <table>
           <thead>
@@ -51,13 +47,14 @@ const BlogLayout = () => {
             </tr>
           </thead>
 
-          {blogs.length &&
-            blogs.map((blog) => (
+          {projects.length &&
+            projects.map((project) => (
               <TableData
-                image={blog.image}
-                title={blog.title}
-                description={blog.description}
-                siteLink={blog.link}
+                image={project.image}
+                title={project.title}
+                description={project.description}
+                githubLink={project.githubLink}
+                siteLink={project.siteLink}
               />
             ))}
         </table>

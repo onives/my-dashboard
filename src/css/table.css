@@ -1,19 +1,23 @@
 :root {
-  --primary-color: orange;
+  --primary-color: #231f20;
   --secondary-color: white;
   --primary-text-color: white;
   --secondary-text-color: black;
 }
-.tabula-data {
-  width: 95%;
+.tabula-data{
+    margin: 50px 10px;
+}
+
+.tabula-data > table {
+  width: 100%;
   text-align: left;
   border-collapse: collapse;
-  margin: 50px 10px;
+  overflow: auto;
 }
 
 th {
   height: 50px;
-  background-color: #4caf50;
+  background-color: #231f20;
   color: white;
 }
 td {

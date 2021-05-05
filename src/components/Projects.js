@@ -1,36 +1,77 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Button } from './generics/Button'
 
-import '../css/forms.css';
+const Projects = ({onProjectSave}) => {
+    const [enteredImg, setEnteredImg] = useState('');
+    const [enteredProjectTitle, setEnteredProjectTitle] = useState('');
+    const [enteredProjectDescription, setEnteredProjectDescription] = useState('');
+    const [enteredGithubLink, setEnteredGithubLink] = useState('');
+    const [enteredSiteLink, setEnteredSiteLink] = useState('');
+   
 
-const Projects = () => {
+    const imgChangeHandler = (e)=>{
+        setEnteredImg(e.target.value);
+    };
+    const titleChangeHandler = (e)=>{
+        setEnteredProjectTitle(e.target.value)
+    };
+    const descriptionChangeHandler = (e)=>{
+        setEnteredProjectDescription(e.target.value)
+    };
+    const githubLinkChangeHandler = (e)=>{
+        setEnteredGithubLink(e.target.value)
+    };
+    const siteLinkChangeHandler = (e)=>{
+        setEnteredSiteLink(e.target.value)
+    };
+
+    const formSubmitHandler =(e)=>{
+        e.preventDefault();
+
+        const newProjectData = {
+            image: enteredImg,
+            title: enteredProjectTitle,
+            description: enteredProjectDescription,
+            githubLink: enteredGithubLink,
+            siteLink: enteredSiteLink
+        }
+        
+        onProjectSave(newProjectData);
+
+        setEnteredImg('');
+        setEnteredProjectTitle('');
+        setEnteredProjectDescription('');
+        setEnteredGithubLink('');
+        setEnteredSiteLink('')
+       
+    }
 
     return (
-        <div>
-            <h2>Enter new Project</h2>
-            <div>
-                <form id='project_form'>
-                    <div>
+        <div className='layout_div'>
+            <h2 className='layout_title'>Enter new Project</h2>
+            <div className='form_div'>
+                <form id='project_form' onSubmit={formSubmitHandler}>
+                    <div className='input-div'>
                         <label>Upload project Image: </label>
-                        <input type='file' />
+                        <input type='file' onChange={imgChangeHandler} value={enteredImg}/>
                     </div>
-                    <div>
+                    <div className='input-div'>
                         <label>Project Tile: </label>
-                        <input type='text' placeholder='type here' />
+                        <input type='text' placeholder='type here' onChange={titleChangeHandler} value={enteredProjectTitle}/>
                     </div>
-                    <div>
-                        <label>Project paragraph: </label>
-                        <input type='text' placeholder='type here' />
+                    <div className='input-div'>
+                        <label>Project description: </label>
+                        <input type='text' placeholder='type here' onChange={descriptionChangeHandler} value={enteredProjectDescription} />
                     </div>
-                    <div>
+                    <div className='input-div'>
                         <label>Github link: </label>
-                        <input type='text' placeholder='type here' />
+                        <input type='text' placeholder='type here' onChange={githubLinkChangeHandler} value={enteredGithubLink} />
                     </div>
-                    <div>
+                    <div className='input-div'>
                         <label>Website link: </label>
-                        <input type='text' placeholder='type here' />
+                        <input type='text' placeholder='type here' onChange={siteLinkChangeHandler} value={enteredSiteLink} />
                     </div>
-                    <div>
+                    <div className='btn-div'>
                         <Button buttonStyle='btn--solid' buttonSize='btn--medium' type='submit'>Submit</Button>
                     </div>
 
