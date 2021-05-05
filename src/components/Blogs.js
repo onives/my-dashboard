@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
-import { Button } from './Button'
-import '../css/forms.css';
+import { Button } from './generics/Button';
 
-
-const Blogs = () => {
+const Blogs = ({onBlogSave}) => {
     const [enteredImg, setEnteredImg] = useState('');
     const [enteredBlogTitle, setEnteredBlogTitle] = useState('');
-    const [enteredBlogParagraph, setEnteredBlogParagraph] = useState('');
+    const [enteredBlogDescription, setEnteredBlogDescription] = useState('');
     const [enteredBlogLink, setEnteredBlogLink] = useState('');
-    const [blogs, setBlogs] = useState([]);
+   
 
     const imgChangeHandler = (e)=>{
         setEnteredImg(e.target.value);
@@ -16,8 +14,8 @@ const Blogs = () => {
     const titleChangeHandler = (e)=>{
         setEnteredBlogTitle(e.target.value)
     };
-    const paragraphChangeHandler = (e)=>{
-        setEnteredBlogParagraph(e.target.value)
+    const descriptionChangeHandler = (e)=>{
+        setEnteredBlogDescription(e.target.value)
     };
     const linkChangeHandler = (e)=>{
         setEnteredBlogLink(e.target.value)
@@ -29,14 +27,15 @@ const Blogs = () => {
         const newBlogData = {
             image: enteredImg,
             title: enteredBlogTitle,
-            paragraph: enteredBlogParagraph,
+            description: enteredBlogDescription,
             link: enteredBlogLink,
         }
-        setBlogs([...blogs, newBlogData])
-        console.log(blogs);
+        
+        onBlogSave(newBlogData);
+
         setEnteredImg('');
         setEnteredBlogTitle('');
-        setEnteredBlogParagraph('');
+        setEnteredBlogDescription('');
         setEnteredBlogLink('')
        
     }
@@ -57,8 +56,8 @@ const Blogs = () => {
                         <input type='text' value={enteredBlogTitle} placeholder='type here' onChange={titleChangeHandler} />
                     </div>
                     <div className='input-div'>
-                        <label>Blog paragraph: </label>
-                        <input type='text' value={enteredBlogParagraph} placeholder='type here' onChange={paragraphChangeHandler} />
+                        <label>Blog Description: </label>
+                        <input type='text' value={enteredBlogDescription} placeholder='type here' onChange={descriptionChangeHandler} />
                     </div>
                     <div className='input-div'>
                         <label>Blog link: </label>

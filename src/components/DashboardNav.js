@@ -6,7 +6,6 @@ import '../css/dashboardCss.css';
 
 const DashboardNav = () => {
     const layoutInfo = [
-        { icon: 'home', itemName: 'Home', path: '/' },
         { icon: 'user', itemName: 'About', path: '/about' },
         { icon: 'project-diagram', itemName: 'Projects', path: '/projects' },
         { icon: 'book-open', itemName: 'Blogs', path: '/blogs' }
