@@ -18,4 +18,10 @@
 .input-div > label{
     margin-bottom: 0.8rem;
 }
-
+.login_form_div > form{
+    width: 95%;
+    margin: auto;
+}
+.login_form_div{
+    margin-top: 5rem;
+}

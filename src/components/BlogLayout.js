@@ -17,12 +17,6 @@ const current_blogs = [
     description: "description 2",
     link: "link2",
   },
-  {
-    image: "ndd.png",
-    title: "title3",
-    description: "description 3",
-    link: "link3",
-  },
 ];
 const BlogLayout = () => {
   const [blogs, setBlogs] = useState(current_blogs);
