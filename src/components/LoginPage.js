@@ -20,7 +20,9 @@ const LoginPage = ()=>{
                     <input type='text' placeholder='Enter your password' id='password_section'/>
                 </div>
                 <div className='btn-div'>
-                    <Button buttonStyle='btn--solid' buttonSize='btn--medium' type='submit'><Link to = '/dashboard'>Submit</Link></Button>
+                    <Link to = '/dashboard'>
+                        <Button buttonStyle='btn--solid' buttonSize='btn--medium' type='submit'>Submit</Button>
+                    </Link>
                 </div>
             </form>
         </div>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Blogs from "./Blogs";
 import TableData from "./generics/TableData";
+import DashboardNav from './DashboardNav'
 import "../css/forms.css";
 import "../css/table.css";
 
@@ -30,6 +31,7 @@ const BlogLayout = () => {
 
   return (
     <div>
+      <DashboardNav />
       <Blogs onBlogSave={handleBlogSave} />
       <div className="tabula-data">
         <table>

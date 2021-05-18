@@ -1,7 +1,6 @@
-import React, { useState} from "react";
+import React, { useState, useEffect } from "react";
 import Projects from "./Projects";
 import TableData from "./generics/TableData";
-import DashboardNav from './DashboardNav'
 import "../css/forms.css";
 import "../css/table.css";
 
@@ -27,6 +26,18 @@ const current_projects = [
 const BlogLayout = () => {
   const [projects, setProjects] = useState(current_projects);
 
+  const getUsers = async () => {
+    const url = 'https://jsonplaceholder.typicode.com/users';
+    const response = await fetch(url);
+    const data = await response.json();
+    setProjects(data);
+  
+  }
+
+  useEffect(() => {
+    getUsers();
+  }, [])
+
   const handleProjectSave = (enteredProjectData) => {
     setProjects((prevProjects) => {
       return [enteredProjectData, ...prevProjects];
@@ -35,7 +46,6 @@ const BlogLayout = () => {
 
   return (
     <div>
-      <DashboardNav />
       <Projects onProjectSave={handleProjectSave} />
       <div className="tabula-data">
         <table>
@@ -54,9 +64,9 @@ const BlogLayout = () => {
           {projects.length &&
             projects.map((project) => (
               <TableData
-                image={project.image}
-                title={project.title}
-                description={project.description}
+                image={project.name}
+                title={project.username}
+                description={project.email}
                 githubLink={project.githubLink}
                 siteLink={project.siteLink}
               />

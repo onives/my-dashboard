@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import About from "./About";
 import "../css/forms.css";
+import DashboardNav from './DashboardNav'
 
 const current_about = [ "I am having a good time. edit me anytime you want!"];
 
@@ -13,6 +14,7 @@ const BlogLayout = () => {
 
   return (
     <div>
+      <DashboardNav/>
       <About onAboutSave={handleAboutSave} />
       <div>
           <p>{about}</p>
