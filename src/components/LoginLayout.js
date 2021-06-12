@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import LoginPage from './LoginPage'
+import LoginPage from './LoginPage';
 
 const LoginLayout = ()=>{
     const [user, setUser] = useState([]);
@@ -10,7 +10,6 @@ const LoginLayout = ()=>{
     return(
         <div>
             <LoginPage onLogIn={handleLogin}/>
-
         </div>
     )
 };

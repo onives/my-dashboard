@@ -10,6 +10,7 @@ const DashboardNav = () => {
         { icon: 'project-diagram', itemName: 'Projects', path: '/projects' },
         { icon: 'book-open', itemName: 'Blogs', path: '/blogs' },
         { icon: 'user', itemName: 'Logout', path: '/' }
+     
 
         
     ]
