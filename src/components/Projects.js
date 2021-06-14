@@ -1,16 +1,40 @@
 import React, {useState} from 'react';
 import { Button } from './generics/Button'
+// import firebase from 'firebase';
+import firebaseApp from '../firebaseSetup'
+
+
 
 const Projects = ({onProjectSave}) => {
-    const [enteredImg, setEnteredImg] = useState('');
+    const [enteredImg, setEnteredImg] = useState(null);
     const [enteredProjectTitle, setEnteredProjectTitle] = useState('');
     const [enteredProjectDescription, setEnteredProjectDescription] = useState('');
     const [enteredGithubLink, setEnteredGithubLink] = useState('');
     const [enteredSiteLink, setEnteredSiteLink] = useState('');
-   
+    const [imageValue, setImageValue] = useState('');
 
-    const imgChangeHandler = (e)=>{
-        setEnteredImg(e.target.value);
+    // integrate firebase cloud storage
+      let storage = firebaseApp.storage();
+      let storageReference = storage.ref()
+      let imageUrl;
+
+
+    const imgChangeHandler = async (e)=>{
+
+        //upload and set image value
+        setImageValue(e.target.value);
+        let image = e.target.files[0]
+        let fileRef = storageReference.child(`images/${image.name}`)
+        try {
+            const snapshot = await fileRef.put(image)
+            imageUrl = await snapshot.ref.getDownloadURL();
+            console.log('****', imageUrl)
+            setEnteredImg(imageUrl)
+        } catch (error) {
+            console.log(error)
+        }
+        // console.log(imageUrl)
+        
     };
     const titleChangeHandler = (e)=>{
         setEnteredProjectTitle(e.target.value)
@@ -25,11 +49,11 @@ const Projects = ({onProjectSave}) => {
         setEnteredSiteLink(e.target.value)
     };
 
-    const formSubmitHandler =(e)=>{
+    const formSubmitHandler = async (e)=>{
         e.preventDefault();
 
         const newProjectData = {
-            image: enteredImg,
+            image: await enteredImg,
             title: enteredProjectTitle,
             description: enteredProjectDescription,
             githubLink: enteredGithubLink,
@@ -37,8 +61,8 @@ const Projects = ({onProjectSave}) => {
         }
         
         onProjectSave(newProjectData);
-
         setEnteredImg('');
+        setImageValue('')
         setEnteredProjectTitle('');
         setEnteredProjectDescription('');
         setEnteredGithubLink('');
@@ -53,7 +77,7 @@ const Projects = ({onProjectSave}) => {
                 <form id='project_form' onSubmit={formSubmitHandler}>
                     <div className='input-div'>
                         <label>Upload project Image: </label>
-                        <input type='file' onChange={imgChangeHandler} value={enteredImg}/>
+                        <input type='file' onChange={imgChangeHandler} value={imageValue}/>
                     </div>
                     <div className='input-div'>
                         <label>Project Tile: </label>

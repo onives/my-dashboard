@@ -24,11 +24,12 @@ const current_projects = [
 ];
 
 
-const BlogLayout = () => {
+const ProjectsLayout = () => {
   const [projects, setProjects] = useState(current_projects);
 
   const handleProjectSave = (enteredProjectData) => {
     setProjects((prevProjects) => {
+      console.log(enteredProjectData)
       return [enteredProjectData, ...prevProjects];
     });
   };
@@ -67,4 +68,4 @@ const BlogLayout = () => {
   );
 };
 
-export default BlogLayout;
+export default ProjectsLayout;
