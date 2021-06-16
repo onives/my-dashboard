@@ -2,6 +2,7 @@
   background-color: rgb(41, 40, 40);
   display: flex;
   justify-content: space-around;
+ 
   
 }
 
@@ -12,10 +13,12 @@
     
 }
 
-.nav-links{
-    
-    
+.nav-links a{
+   text-decoration: none;  
 }
 
+.svg-inline--fa{
+  color: white !important; 
+}
 
 

@@ -3,6 +3,8 @@ import { Button } from './generics/Button'
 import { Link } from 'react-router-dom';
 import "../css/forms.css";
 
+
+
 const LoginPage = ({onLogIn})=>{
     const [enteredEmail, setEmail] = useState('');
     const [enteredPassword, setPassword] = useState('');
@@ -25,6 +27,7 @@ const LoginPage = ({onLogIn})=>{
     }
     return(
         <div className='login_form_div'>
+          
             <form onSubmit = {handleLogin}>
                 <div>
                     <h3>Welcome back Admin. Login to continue</h3>
@@ -43,6 +46,7 @@ const LoginPage = ({onLogIn})=>{
                     </Link>
                 </div>
             </form>
+          
         </div>
     )
 

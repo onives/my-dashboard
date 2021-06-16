@@ -24,7 +24,7 @@ const Projects = ({onProjectSave}) => {
         //upload and set image value
         setImageValue(e.target.value);
         let image = e.target.files[0]
-        let fileRef = storageReference.child(`images/${image.name}`)
+        let fileRef = storageReference.child(`projects/${image.name}`)
         try {
             const snapshot = await fileRef.put(image)
             imageUrl = await snapshot.ref.getDownloadURL();

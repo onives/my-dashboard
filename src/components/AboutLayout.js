@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import About from "./About";
 import "../css/forms.css";
 import DashboardNav from './DashboardNav'
+import Card from './generics/Card'
 
 const current_about = [ "I am having a good time. edit me anytime you want!"];
 
@@ -15,7 +16,9 @@ const BlogLayout = () => {
   return (
     <div>
       <DashboardNav/>
-      <About onAboutSave={handleAboutSave} />
+      <Card className='insideForm'>
+        <About onAboutSave={handleAboutSave} />
+      </Card>
       <div>
           <p>{about}</p>
       </div>

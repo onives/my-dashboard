@@ -1,7 +1,8 @@
 import React, { useState} from "react";
 import Projects from "./Projects";
 import TableData from "./generics/TableData";
-import DashboardNav from './DashboardNav'
+import DashboardNav from './DashboardNav';
+import Card from './generics/Card'
 import "../css/forms.css";
 import "../css/table.css";
 
@@ -37,7 +38,9 @@ const ProjectsLayout = () => {
   return (
     <div>
       <DashboardNav />
-      <Projects onProjectSave={handleProjectSave} />
+      <Card className='insideForm'>
+        <Projects onProjectSave={handleProjectSave} />
+      </Card>
       <div className="tabula-data">
         <table>
           <thead>

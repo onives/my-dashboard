@@ -1,6 +1,9 @@
+body{
+    background-color: brown;
+}
 .layout_div{
     margin: 0;
-    padding: 0;
+    padding: 1.5rem;
 }
 .layout_title{
     text-align: center;
@@ -18,10 +21,29 @@
 .input-div > label{
     margin-bottom: 0.8rem;
 }
+.input-div > input, #about_section{
+    padding: 8px;
+}
 .login_form_div > form{
     width: 95%;
     margin: auto;
 }
 .login_form_div{
     margin-top: 5rem;
+    padding: 1.5rem;
+    
 }
+#about_section{
+    height: 30vh;
+}
+.login {
+    width: 90%;
+    max-width: 40rem;
+    margin: 2rem auto;
+}
+.insideForm{
+    width: 90%;
+    max-width: 50rem;
+    margin: 2rem auto;
+}
+

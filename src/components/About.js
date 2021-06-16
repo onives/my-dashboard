@@ -20,7 +20,7 @@ const About = ({onAboutSave}) => {
                 <form onSubmit={formSubmitHandler}>
                     <div className='input-div'>
                         <label htmlFor="about_section">Enter About: </label>
-                        <input type='text' placeholder='type here' id='about_section' value={enteredAbout} onChange={aboutChangeHandler} />
+                        <textarea type='text' placeholder='type here' id='about_section' value={enteredAbout} onChange={aboutChangeHandler} ></textarea>
                     </div>
                     <div className='btn-div'>
                         <Button buttonStyle='btn--solid' buttonSize='btn--medium' type='submit'>Submit</Button>

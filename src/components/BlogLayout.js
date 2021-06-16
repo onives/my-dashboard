@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Blogs from "./Blogs";
 import TableData from "./generics/TableData";
 import DashboardNav from './DashboardNav'
+import Card from './generics/Card'
 import "../css/forms.css";
 import "../css/table.css";
 
@@ -32,7 +33,9 @@ const BlogLayout = () => {
   return (
     <div>
       <DashboardNav />
-      <Blogs onBlogSave={handleBlogSave} />
+      <Card className='insideForm'>
+        <Blogs onBlogSave={handleBlogSave} />
+      </Card>
       <div className="tabula-data">
         <table>
           <thead>
