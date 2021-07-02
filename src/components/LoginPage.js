@@ -1,6 +1,8 @@
-import React, {useState, useEffect } from 'react';
+import React, {useState} from 'react';
 import { Button } from './generics/Button'
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import { Redirect, useLocation } from 'react-router';
+
 import Card from './generics/Card'
 import "../css/forms.css";
 
@@ -12,14 +14,9 @@ const LoginPage = ({onLogIn})=>{
     const [emailIsValid, setEmailIsValid] = useState();
     const [passwordIsValid, setPasswordIsValid] = useState();
     const [formIsValid, setFormIsValid] = useState(false);
+    const [redirectToReferrer, setRedirectToReferrer] = useState(false);
+    const { state } = useLocation()
 
-    useEffect(() => {
-        console.log('EFFECT RUNNING');
-    
-        return () => {
-          console.log('EFFECT CLEANUP');
-        };
-    }, []);
 
     const handleEmailChange = (e)=>{
         setEmail(e.target.value);
@@ -54,12 +51,23 @@ const LoginPage = ({onLogIn})=>{
         setEmail('');
         setPassword('');
     } 
+    
+    const login = ()=> fakeAuth.authenticate(()=>{
+        setRedirectToReferrer(true)
+    })
+    if (redirectToReferrer === true) {
+        // if the user was redirected there from a previous route, 
+        // once they authenticate, they’re taken back to that original route.
+        return <Redirect to={state?.from || '/'} />
+    }
+
+
     return(
         <Card className='login'>
             <div className='login_form_div'>
                 <form onSubmit = {handleLogin}>
                     <div>
-                        <h3>Welcome back Admin. Login to continue</h3>
+                        <h3>Welcome back. Login to continue</h3>
                     </div>
                     <div className={`input-div control ${emailIsValid === false ? 'invalid' : ''}`}>
                         <label htmlFor="email_section">Enter Email: </label>
@@ -70,9 +78,9 @@ const LoginPage = ({onLogIn})=>{
                         <input value={enteredPassword} type='text' placeholder='Enter your password' id='password_section' onChange={handlePasswordChange} onBlur={validatePasswordHandler} />
                     </div>
                     <div className='btn-div'>
-                        <Link to = '/dashboard'>
-                            <Button buttonStyle='btn--solid' buttonSize='btn--medium' type='submit' disabled={!formIsValid}>Log in</Button>
-                        </Link>
+                        {/* <Link to = '/dashboard'> */}
+                        <Button buttonStyle='btn--solid' buttonSize='btn--medium' type='submit' disabled={!formIsValid} onClick={login}>Log in</Button>
+                        {/* </Link> */}
                     </div>
                 </form>
             </div>
