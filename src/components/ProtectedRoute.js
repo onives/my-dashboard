@@ -5,20 +5,23 @@
 // It checks if the user is authenticated. If they are, it renders the “component” prop. 
 // If not, it redirects the user to /login.
 
-import React from 'react';
+import React, { useContext } from 'react';
 import { Redirect } from 'react-router';
 import { Route } from "react-router-dom";
+import AuthContext from './auth/auth-context';
 
 const ProtectedRoute = ({ children, ...rest })=>{
+    const authCtx = useContext(AuthContext);
 
     return(
-        <Route {...rest} render={({location})=>{
-            return fakeAuth.isAuthenticated === true
+        <Route {...rest} render={()=>{
+
+            return authCtx.isLoggedIn === true
             ? children 
             : <Redirect to={{
                 pathname: '/',
-                state: {from: location}
-            }} />
+            }}
+             />
         }}/>
 
     )
