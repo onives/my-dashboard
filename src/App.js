@@ -10,7 +10,6 @@ import ProjectsLayout from "./components/ProjectsLayout";
 import ProtectedRoute from "./components/ProtectedRoute";
 import BlogLayout from "./components/BlogLayout";
 
-
 library.add(fab, fas);
 
 function App() {

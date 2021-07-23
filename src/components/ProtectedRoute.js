@@ -1,5 +1,3 @@
-// Requirement
-
 // It has the same API as <Route />.
 // It renders a <Route /> and passes all the props through to it.
 // It checks if the user is authenticated. If they are, it renders the “component” prop. 
@@ -14,12 +12,13 @@ const ProtectedRoute = ({ children, ...rest })=>{
     const authCtx = useContext(AuthContext);
 
     return(
-        <Route {...rest} render={()=>{
+        <Route {...rest} render={({ location })=>{
 
             return authCtx.isLoggedIn === true
             ? children 
             : <Redirect to={{
                 pathname: '/',
+                state: { from: location }
             }}
              />
         }}/>

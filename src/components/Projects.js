@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import { Button } from './generics/Button'
+import { Button } from './generics/Button';
 // import firebase from 'firebase';
-import firebaseApp from '../firebaseSetup'
+import firebaseApp from '../firebaseSetup';
 
 
 
@@ -25,15 +25,14 @@ const Projects = ({onProjectSave}) => {
         setImageValue(e.target.value);
         let image = e.target.files[0]
         let fileRef = storageReference.child(`projects/${image.name}`)
+
         try {
             const snapshot = await fileRef.put(image)
             imageUrl = await snapshot.ref.getDownloadURL();
-            console.log('****', imageUrl)
             setEnteredImg(imageUrl)
         } catch (error) {
             console.log(error)
         }
-        // console.log(imageUrl)
         
     };
     const titleChangeHandler = (e)=>{
