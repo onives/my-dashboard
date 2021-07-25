@@ -12,14 +12,11 @@ const DashboardNav = () => {
         { icon: 'user', itemName: 'About', path: '/dashboard' },
         { icon: 'project-diagram', itemName: 'Projects', path: '/projects' },
         { icon: 'book-open', itemName: 'Blogs', path: '/blogs' },
-     
-
-        
     ]
     return (
             
         <div className='dashboardNav'>
-            <Button buttonStyle='btn--outline' buttonSize='btn--small' onClick={authCtx.onLogout}>Log out</Button>
+            <Button buttonStyle='btn--outline' buttonSize='btn--medium' onClick={authCtx.onLogout}>Log out</Button>
             {layoutInfo.map(info => (
             <DashboardGridItem gridName={info.itemName} gridIcon={info.icon} path={info.path} />
         ))}</div>

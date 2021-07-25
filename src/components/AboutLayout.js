@@ -1,18 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useContext} from "react";
 import About from "./About";
 import "../css/forms.css";
 import DashboardNav from './DashboardNav'
-import Card from './generics/Card'
+import Card from './generics/Card';
+import axios from 'axios';
+import AuthContext from './auth/auth-context';
 
-const current_about = [ "I am having a good time. edit me anytime you want!"];
+const current_bio = [ "I am having a good time. edit me anytime you want!"];
 
-const BlogLayout = () => {
-  const [about, setAbout] = useState(current_about);
+const AboutLayout = () => {
+  const [bio, setBio] = useState(current_bio);
+  const authCtx = useContext(AuthContext);
 
   const handleAboutSave = (enteredAboutData) => {
-    setAbout(enteredAboutData)
+    setBio(enteredAboutData)
   };
-
+  const token = authCtx.token
+  // console.log(token)
+  axios.patch("http://localhost:4000/user/me", {bio}, {headers: { 'Authorization': `Bearer ${token}`}})
   return (
     <div>
       <DashboardNav/>
@@ -20,10 +25,10 @@ const BlogLayout = () => {
         <About onAboutSave={handleAboutSave} />
       </Card>
       <div>
-          <p>{about}</p>
+          <p>{bio}</p>
       </div>
     </div>
   );
 };
 
-export default BlogLayout;
+export default AboutLayout;

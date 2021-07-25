@@ -13,7 +13,7 @@ const ProtectedRoute = ({ children, ...rest })=>{
 
     return(
         <Route {...rest} render={({ location })=>{
-
+           
             return authCtx.isLoggedIn === true
             ? children 
             : <Redirect to={{

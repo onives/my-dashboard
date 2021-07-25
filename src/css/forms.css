@@ -33,7 +33,9 @@ body{
 .login_form_div{
     margin-top: 5rem;
     padding: 1.5rem;
-    
+}
+.login_form_div > form > div > h3{
+    margin-bottom: 2rem;
 }
 #about_section{
     height: 30vh;
@@ -85,12 +87,37 @@ body{
     border-color: red;
     background: #fbdada;
 }
+.login-signup-span{
+    margin: 20px 0 5px 0;
+}
+.login-signup-span > span > button{
+    margin-left: 5px;
+}
 
-/* @media (min-width: 768px) {
-    .control {
+.successful-alert{
+    color: green;
+    border: 1px solid green;
+    padding: 15px 0 15px 0;
+    margin: 0;
+    background-color: #fdf6f6;
+}
+.unsuccessful-alert{
+    color: #c20707;
+    border: 1px solid #c20707;
+    padding: 15px 0 15px 0;
+    margin: 0;
+    background-color: #fdf6f6;
+}
+.isLoading{
+    color: rgb(165, 54, 165);
+    padding: 10px 0 10px 0;
+    margin: 1px;  
+}
+@media (min-width: 768px) {
+    /* .control {
         align-items: center;
         flex-direction: row;
-    }
-
-} */
+    } */
+    
+}
 
