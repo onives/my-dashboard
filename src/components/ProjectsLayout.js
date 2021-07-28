@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect} from "react";
 import Projects from "./Projects";
 import TableData from "./generics/TableData";
 import DashboardNav from './DashboardNav';
-import Card from './generics/Card'
+import Card from './generics/Card';
 import "../css/forms.css";
 import "../css/table.css";
 import axios from 'axios';

@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect} from "react";
 import About from "./About";
 import "../css/forms.css";
-import DashboardNav from './DashboardNav'
+import DashboardNav from './DashboardNav';
 import Card from './generics/Card';
 import axios from 'axios';
 import AuthContext from './auth/auth-context';
