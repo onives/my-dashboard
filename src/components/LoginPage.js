@@ -16,8 +16,8 @@ const LoginPage = ({history})=>{
     const [formIsValid, setFormIsValid] = useState(false);
     const [success, setSuccess] = useState(false);
     const [failure, setFailure] = useState(false);
+    const[isLoading, setLoading] = useState(false);
     const authCtx = useContext(AuthContext);
-    const[isLoading, setLoading] = useState(false)
 
     const handleEmailChange = (e)=>{
         //check if input is not empty string
@@ -128,7 +128,7 @@ const LoginPage = ({history})=>{
                     </div>
                     <div className='btn-div'>
                         {!isLoading && <Button buttonStyle='btn--solid' buttonSize='btn--medium' type='submit' disabled={!formIsValid} >Proceed</Button>}
-                        {isLoading && <p className="isLoading">Sending request...</p>}
+                        {isLoading && <p className="isLoading">Sending request... </p>}
                     </div>
                     { !isLogin && <div className='login-signup-span'>
                         <span>Already have an account? <Button buttonStyle='btn--outline' buttonSize='btn--small' onClick={()=>setIsLogin(true)}>login</Button></span>

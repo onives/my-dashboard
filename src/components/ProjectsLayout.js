@@ -38,9 +38,6 @@ const ProjectsLayout = () => {
     })
   }, [token]);
   
-  const handleProjectEdit = ()=>{
-
-  }
 
   const handleProjectDelete = ()=>{
 
@@ -52,6 +49,7 @@ const ProjectsLayout = () => {
       <Card className='insideForm'>
         <Projects onProjectSave={handleProjectSave} />
       </Card>
+    
       <div className="tabula-data">
         <table>
           <thead>
@@ -70,8 +68,8 @@ const ProjectsLayout = () => {
             projects.map((project) => (
               <TableData
                 key={project._id}
-                editHandler={handleProjectEdit}
                 deleteHandler={handleProjectDelete}
+                editPath={`/projects/${project._id}`}
                 image={project.image}
                 title={project.title}
                 description={project.description}
