@@ -42,14 +42,18 @@ const Blogs = ({onBlogSave}) => {
     const formSubmitHandler = async (e)=>{
         e.preventDefault();
 
-        const newBlogData = { 
-            image: await enteredImg,
-            title: enteredBlogTitle,
-            description: enteredBlogDescription,
-            link: enteredBlogLink,
-        }
+        // const newBlogData = { 
+        //     image: await enteredImg,
+        //     title: enteredBlogTitle,
+        //     description: enteredBlogDescription,
+        //     link: enteredBlogLink,
+        // }
+        const image = await enteredImg
+        const title =  enteredBlogTitle
+        const description = enteredBlogDescription
+        const link = enteredBlogLink
         
-        onBlogSave(newBlogData);
+        onBlogSave({image, title, description, link});
 
         setEnteredImg('');
         setImageValue('')

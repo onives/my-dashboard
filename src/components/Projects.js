@@ -51,15 +51,13 @@ const Projects = ({onProjectSave}) => {
     const formSubmitHandler = async (e)=>{
         e.preventDefault();
 
-        const newProjectData = {
-            image: await enteredImg,
-            title: enteredProjectTitle,
-            description: enteredProjectDescription,
-            githubLink: enteredGithubLink,
-            siteLink: enteredSiteLink
-        }
+        const image = await enteredImg
+        const title =  enteredProjectTitle
+        const description = enteredProjectDescription
+        const githubLink =enteredGithubLink
+        const siteLink = enteredSiteLink
         
-        onProjectSave(newProjectData);
+        onProjectSave({image, title, description, githubLink, siteLink});
         setEnteredImg('');
         setImageValue('')
         setEnteredProjectTitle('');

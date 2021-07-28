@@ -1,34 +1,49 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Blogs from "./Blogs";
 import TableData from "./generics/TableData";
 import DashboardNav from './DashboardNav'
 import Card from './generics/Card'
 import "../css/forms.css";
 import "../css/table.css";
+import axios from 'axios';
+import AuthContext from './auth/auth-context';
 
-const current_blogs = [
-  {
-    image: "nn.png",
-    title: "title1",
-    description: "description 1",
-    link: "link1",
-  },
-  {
-    image: "njj.png",
-    title: "title2",
-    description: "description 2",
-    link: "link2",
-  },
-];
+
 const BlogLayout = () => {
-  const [blogs, setBlogs] = useState(current_blogs);
+  const [blogs, setBlogs] = useState([]);
+  const authCtx = useContext(AuthContext);
+  const token = authCtx.token;
 
-  const handleBlogSave = (enteredBlogData) => {
-    //   setBlogs([enteredBlogData, ...blogs])
-    setBlogs((prevBlogs) => {
-      return [enteredBlogData, ...prevBlogs];
-    });
+  const handleBlogSave = ({image, title, description, link}) => {
+
+    axios.post("http://localhost:4000/blogs", {image, title, description,link}, {headers: { 'Authorization': `Bearer ${token}`}})
+    .then(res=>{
+      console.log(res)
+    })
+    .catch(error=>{
+      console.log(error)
+    })
+   
   };
+
+  useEffect(()=>{
+    axios.get("http://localhost:4000/blogs", {headers: { 'Authorization': `Bearer ${token}`}})
+    .then(res=>{
+      console.log(res)
+      setBlogs(res.data)
+    })
+    .catch(error=>{
+      console.log(error)
+    })
+  }, [token]);
+
+  const handleBlogEdit =()=>{
+
+  }
+
+  const handleBlogDelete =()=>{
+
+  }
 
   return (
     <div>
@@ -53,6 +68,9 @@ const BlogLayout = () => {
           {blogs.length &&
             blogs.map((blog) => (
               <TableData
+                key={blog._id}
+                editHandler={handleBlogEdit}
+                deleteHandler={handleBlogDelete}
                 image={blog.image}
                 title={blog.title}
                 description={blog.description}

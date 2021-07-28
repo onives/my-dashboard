@@ -1,11 +1,9 @@
 import React, {useState, useContext} from 'react';
-import { Button } from './generics/Button'
-import AuthContext from './auth/auth-context';
-import Card from './generics/Card'
+import { Button } from './generics/Button';
+import AuthContext from './auth/auth-context'; 
+import Card from './generics/Card';
 import "../css/forms.css";
 import axios from 'axios';
-
-
 
 
 const LoginPage = ({history})=>{
@@ -56,7 +54,7 @@ const LoginPage = ({history})=>{
                 setTimeout(()=>{
                     setSuccess(false)
                     history.replace('/dashboard')
-                }, 3000)
+                }, 2000)
                 const expTime = new Date(
                     //session to last for an hour => 3600 * 1000 (converted to miliseconds)
                     new Date().getTime() + (3600000)
@@ -94,9 +92,8 @@ const LoginPage = ({history})=>{
                 setFailure(true)
             })
         }
-   
-       
-       setFullName('')
+
+       setFullName('');
        setEmail('');
        setPassword('');
     }

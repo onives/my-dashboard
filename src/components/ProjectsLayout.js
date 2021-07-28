@@ -1,39 +1,50 @@
-import React, { useState} from "react";
+import React, { useState, useContext, useEffect} from "react";
 import Projects from "./Projects";
 import TableData from "./generics/TableData";
 import DashboardNav from './DashboardNav';
 import Card from './generics/Card'
 import "../css/forms.css";
 import "../css/table.css";
-
-const current_projects = [
-  {
-    image: "nn.png",
-    title: "title1",
-    description: "description 1",
-    githubLink: "link1",
-    siteLink: "link22"
-  },
-  {
-    image: "njj.png",
-    title: "title2",
-    description: "description 2",
-    githubLink: "link2",
-    siteLink: "link33"
-  },
-
-];
+import axios from 'axios';
+import AuthContext from './auth/auth-context';
 
 
 const ProjectsLayout = () => {
-  const [projects, setProjects] = useState(current_projects);
+  const [projects, setProjects] = useState([]);
+  const authCtx = useContext(AuthContext);
+  const token = authCtx.token;
 
-  const handleProjectSave = (enteredProjectData) => {
-    setProjects((prevProjects) => {
-      console.log(enteredProjectData)
-      return [enteredProjectData, ...prevProjects];
-    });
+  const handleProjectSave = ({image, title, description, githubLink, siteLink}) => {
+
+    axios.post("http://localhost:4000/projects", {image, title, description, githubLink, siteLink}, {headers: { 'Authorization': `Bearer ${token}`}})
+    .then(res=>{
+      console.log(res)
+      
+    })
+    .catch(error=>{
+      console.log(error)
+    })
   };
+
+  useEffect(()=>{
+
+    axios.get("http://localhost:4000/projects", {headers: { 'Authorization': `Bearer ${token}`}})
+    .then(res=>{
+      console.log(res)
+      setProjects(res.data)
+    })
+    .catch(error=>{
+      console.log(error)
+    })
+  }, [token]);
+  
+  const handleProjectEdit = ()=>{
+
+  }
+
+  const handleProjectDelete = ()=>{
+
+  }
 
   return (
     <div>
@@ -58,6 +69,9 @@ const ProjectsLayout = () => {
           {projects.length &&
             projects.map((project) => (
               <TableData
+                key={project._id}
+                editHandler={handleProjectEdit}
+                deleteHandler={handleProjectDelete}
                 image={project.image}
                 title={project.title}
                 description={project.description}

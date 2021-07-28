@@ -1,7 +1,7 @@
 import React from "react";
 import {Button} from './Button'
 
-const TableData = ({ image, title, description, githubLink, siteLink }) => {
+const TableData = ({ image, title, description, githubLink, siteLink, editHandler, deleteHandler}) => {
   return (
     <tbody>
       <tr>
@@ -10,8 +10,8 @@ const TableData = ({ image, title, description, githubLink, siteLink }) => {
         <td>{description}</td>
         <td>{githubLink}</td>
         <td>{siteLink}</td>
-        <td><Button>Edit</Button></td>
-        <td><Button>Delete</Button></td>
+        <td><Button onClick={editHandler}>Edit</Button></td>
+        <td><Button onClick={deleteHandler}>Delete</Button></td>
       </tr>
     </tbody>
   );

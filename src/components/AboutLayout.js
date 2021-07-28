@@ -1,4 +1,4 @@
-import React, { useState, useContext} from "react";
+import React, { useState, useContext, useEffect} from "react";
 import About from "./About";
 import "../css/forms.css";
 import DashboardNav from './DashboardNav'
@@ -6,18 +6,35 @@ import Card from './generics/Card';
 import axios from 'axios';
 import AuthContext from './auth/auth-context';
 
-const current_bio = [ "I am having a good time. edit me anytime you want!"];
-
 const AboutLayout = () => {
-  const [bio, setBio] = useState(current_bio);
+  const [bio, setBio] = useState('');
   const authCtx = useContext(AuthContext);
+  const token = authCtx.token;
 
   const handleAboutSave = (enteredAboutData) => {
-    setBio(enteredAboutData)
+    const bio = enteredAboutData
+   
+    axios.patch("http://localhost:4000/user/me", {bio}, {headers: { 'Authorization': `Bearer ${token}`}})
+    .then(res=>{
+      console.log(res.data)
+    })
+    .catch(err=>{
+      console.log(err)
+    })
+    
   };
-  const token = authCtx.token
-  // console.log(token)
-  axios.patch("http://localhost:4000/user/me", {bio}, {headers: { 'Authorization': `Bearer ${token}`}})
+
+  useEffect(()=>{
+    axios.get("http://localhost:4000/user/me", {headers: { 'Authorization': `Bearer ${token}`}})
+    .then(res=>{
+      console.log(res)
+      setBio(res.data.bio)
+    })
+    .catch(error=>{
+      console.log(error)
+    })
+  }, [token])
+  
   return (
     <div>
       <DashboardNav/>
