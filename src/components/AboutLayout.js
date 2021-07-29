@@ -5,6 +5,7 @@ import DashboardNav from './DashboardNav';
 import Card from './generics/Card';
 import axios from 'axios';
 import AuthContext from './auth/auth-context';
+import env from 'react-dotenv';
 
 const AboutLayout = () => {
   const [bio, setBio] = useState('');
@@ -14,7 +15,7 @@ const AboutLayout = () => {
   const handleAboutSave = (enteredAboutData) => {
     const bio = enteredAboutData
    
-    axios.patch("http://localhost:4000/user/me", {bio}, {headers: { 'Authorization': `Bearer ${token}`}})
+    axios.patch(`${env.remoteApi}user/me`, {bio}, {headers: { 'Authorization': `Bearer ${token}`}})
     .then(res=>{
       console.log(res.data)
     })
@@ -25,7 +26,7 @@ const AboutLayout = () => {
   };
 
   useEffect(()=>{
-    axios.get("http://localhost:4000/user/me", {headers: { 'Authorization': `Bearer ${token}`}})
+    axios.get(`${env.remoteApi}user/me`, {headers: { 'Authorization': `Bearer ${token}`}})
     .then(res=>{
       console.log(res)
       setBio(res.data.bio)

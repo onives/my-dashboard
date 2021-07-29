@@ -4,6 +4,7 @@ import AuthContext from './auth/auth-context';
 import Card from './generics/Card';
 import "../css/forms.css";
 import axios from 'axios';
+import env from 'react-dotenv';
 
 
 const LoginPage = ({history})=>{
@@ -47,7 +48,7 @@ const LoginPage = ({history})=>{
         if(!email || !password) return
         setLoading(true)
         if(isLogin){
-            axios.post("http://localhost:4000/user/login", {email, password})
+            axios.post(`${env.remoteApi}user/login`, {email, password})
             .then(res=>{
                 setLoading(false)
                 console.log(res)
@@ -72,8 +73,7 @@ const LoginPage = ({history})=>{
                 setFailure(true)
             })
         }else {
-            //    axios.post("https://my-dashboard-api.herokuapp.com/user/signup", {fullName, email, password})
-            axios.post("http://localhost:4000/user/signup", {fullName, email, password})
+            axios.post(`${env.remoteApi}user/signup`, {fullName, email, password})
             .then(res=>{
                 setLoading(false)
                 console.log(res)
@@ -128,7 +128,8 @@ const LoginPage = ({history})=>{
                         <input value={password} type='password' placeholder='Enter your password' minLength="6" id='password_section' onChange={handlePasswordChange} onBlur={validatePasswordHandler} />
                     </div>
                     <div className='btn-div'>
-                        {!isLoading && <Button buttonStyle='btn--solid' buttonSize='btn--medium' type='submit' disabled={!formIsValid} >Proceed</Button>}
+                        {!isLoading && isLogin && <Button buttonStyle='btn--solid' buttonSize='btn--medium' type='submit' disabled={!formIsValid} >Log In</Button>}
+                        {!isLoading && !isLogin && <Button buttonStyle='btn--solid' buttonSize='btn--medium' type='submit' disabled={!formIsValid} >Sign Up</Button>}
                         {isLoading && <p className="isLoading">Sending request... </p>}
                     </div>
                     { !isLogin && <div className='login-signup-span'>

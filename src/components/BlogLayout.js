@@ -7,6 +7,7 @@ import "../css/forms.css";
 import "../css/table.css";
 import axios from 'axios';
 import AuthContext from './auth/auth-context';
+import env from 'react-dotenv';
 
 
 const BlogLayout = () => {
@@ -16,7 +17,7 @@ const BlogLayout = () => {
 
   const handleBlogSave = ({image, title, description, link}) => {
 
-    axios.post("http://localhost:4000/blogs", {image, title, description,link}, {headers: { 'Authorization': `Bearer ${token}`}})
+    axios.post(`${env.remoteApi}blogs`, {image, title, description,link}, {headers: { 'Authorization': `Bearer ${token}`}})
     .then(res=>{
       console.log(res)
     })
@@ -27,7 +28,7 @@ const BlogLayout = () => {
   };
 
   useEffect(()=>{
-    axios.get("http://localhost:4000/blogs", {headers: { 'Authorization': `Bearer ${token}`}})
+    axios.get(`${env.remoteApi}blogs`, {headers: { 'Authorization': `Bearer ${token}`}})
     .then(res=>{
       console.log(res)
       setBlogs(res.data)
@@ -47,15 +48,15 @@ const BlogLayout = () => {
         <table>
           <thead>
             <tr>
-              <th>Image</th>
-              <th>Title</th>
-              <th>Description</th>
-              <th>Github Link</th>
-              <th>Site Link</th>
-              <th>Edit</th>
+            <th><span>Image</span></th>
+              <th><span>Title</span></th>
+              <th><span>Description</span></th>
+              <th><span>Github Link</span></th>
+              <th><span>Site Link</span></th>
+              <th><span>View</span></th>
             </tr>
           </thead>
-
+          <tbody>
           {blogs.length &&
             blogs.map((blog) => (
               <TableData
@@ -66,6 +67,7 @@ const BlogLayout = () => {
                 siteLink={blog.link}
               />
             ))}
+          </tbody>
         </table>
       </div>
     </div>

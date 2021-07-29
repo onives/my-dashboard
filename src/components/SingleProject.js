@@ -6,6 +6,7 @@ import "../css/forms.css"
 import Card from './generics/Card';
 import axios from 'axios';
 import AuthContext from './auth/auth-context';
+import env from 'react-dotenv';
 
 
 const SingleProject = ({match, history})=>{
@@ -46,7 +47,7 @@ const SingleProject = ({match, history})=>{
     };
     const getProject = async () => {
         try {
-            const response = await axios.get(`http://localhost:4000/projects/${projectId}`, {headers: { 'Authorization': `Bearer ${token}`}});
+            const response = await axios.get(`${env.remoteApi}projects/${projectId}`, {headers: { 'Authorization': `Bearer ${token}`}});
             setImage(response.data.image);
             setTitle(response.data.title);
             setDescription(response.data.description);
@@ -70,7 +71,7 @@ const SingleProject = ({match, history})=>{
         const data = { image: await enteredImage, title, description, githubLink, siteLink }
 
         try {
-            const response = await axios.patch(`http://localhost:4000/projects/${projectId}`, data, {headers: { 'Authorization': `Bearer ${token}`}});
+            const response = await axios.patch(`${env.remoteApi}projects/${projectId}`, data, {headers: { 'Authorization': `Bearer ${token}`}});
             console.log("Updated Data ===>", response)
 
             setLoading(false)
@@ -96,7 +97,7 @@ const SingleProject = ({match, history})=>{
     }
     const handleProjectDelete = async()=>{
         try {
-          await axios.delete(`http://localhost:4000/projects/${projectId}`, {headers: { 'Authorization': `Bearer ${token}`}});
+          await axios.delete(`${env.remoteApi}projects/${projectId}`, {headers: { 'Authorization': `Bearer ${token}`}});
           history.push("/projects");
         } catch (error) {
           console.error(error);

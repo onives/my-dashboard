@@ -5,5 +5,7 @@ window.env = {
   "storageBucket": "my-dashboard-8a758.appspot.com",
   "messagingSenderId": "634905266455",
   "appId": "1:634905266455:web:a32a56e7f63b21d482cf52",
-  "measurementId": "G-3K16CLM0P3"
+  "measurementId": "G-3K16CLM0P3",
+  "remoteApi": "https://my-dashboard-api.herokuapp.com/",
+  "localApi": "http://localhost:4000/"
 };
