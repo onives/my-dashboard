@@ -2,7 +2,7 @@ import React from "react";
 import {Button} from './Button'
 import { Link } from 'react-router-dom';
 
-const TableData = ({ image, title, description, githubLink, siteLink, deleteHandler, editPath}) => {
+const TableData = ({ image, title, description, githubLink, siteLink, editPath}) => {
   return (
     <tbody>
       <tr>
@@ -11,8 +11,7 @@ const TableData = ({ image, title, description, githubLink, siteLink, deleteHand
         <td>{description}</td>
         <td>{githubLink}</td>
         <td>{siteLink}</td>
-        <td><Button><Link to={editPath} >Edit</Link></Button></td>
-        <td><Button onClick={deleteHandler}>Delete</Button></td>
+        <td><Button><Link to={editPath}>View</Link></Button></td>
       </tr>
     </tbody>
   );

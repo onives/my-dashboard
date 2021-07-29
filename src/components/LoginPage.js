@@ -44,6 +44,7 @@ const LoginPage = ({history})=>{
 
     const submitHandler = (e)=>{
         e.preventDefault()
+        if(!email || !password) return
         setLoading(true)
         if(isLogin){
             axios.post("http://localhost:4000/user/login", {email, password})

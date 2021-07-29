@@ -37,14 +37,6 @@ const BlogLayout = () => {
     })
   }, [token]);
 
-  const handleBlogEdit =()=>{
-
-  }
-
-  const handleBlogDelete =()=>{
-
-  }
-
   return (
     <div>
       <DashboardNav />
@@ -61,7 +53,6 @@ const BlogLayout = () => {
               <th>Github Link</th>
               <th>Site Link</th>
               <th>Edit</th>
-              <th>Delete</th>
             </tr>
           </thead>
 
@@ -69,8 +60,6 @@ const BlogLayout = () => {
             blogs.map((blog) => (
               <TableData
                 key={blog._id}
-                editHandler={handleBlogEdit}
-                deleteHandler={handleBlogDelete}
                 image={blog.image}
                 title={blog.title}
                 description={blog.description}

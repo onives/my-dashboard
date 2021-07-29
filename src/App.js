@@ -24,7 +24,7 @@ function App() {
           <ProtectedRoute path="/dashboard"> <AboutLayout /> </ProtectedRoute> 
           <ProtectedRoute path="/projects"> <ProjectsLayout /> </ProtectedRoute>
           <ProtectedRoute path="/blogs"> <BlogLayout /> </ProtectedRoute>
-          {/* <ProtectedRoute exact path="/projects/:id"> <SingleProject /> </ProtectedRoute> */}
+          {/* <ProtectedRoute path="/projects/:id"> <SingleProject /> </ProtectedRoute> */}
           {/* <ProtectedRoute path="/blogs/:id"> <SingleBlog /> </ProtectedRoute> */}
         </Switch>
       </Router>

@@ -14,6 +14,7 @@ const ProjectsLayout = () => {
   const authCtx = useContext(AuthContext);
   const token = authCtx.token;
 
+
   const handleProjectSave = ({image, title, description, githubLink, siteLink}) => {
 
     axios.post("http://localhost:4000/projects", {image, title, description, githubLink, siteLink}, {headers: { 'Authorization': `Bearer ${token}`}})
@@ -39,9 +40,7 @@ const ProjectsLayout = () => {
   }, [token]);
   
 
-  const handleProjectDelete = ()=>{
-
-  }
+  
 
   return (
     <div>
@@ -60,7 +59,6 @@ const ProjectsLayout = () => {
               <th>Github Link</th>
               <th>Site Link</th>
               <th>Edit</th>
-              <th>Delete</th>
             </tr>
           </thead>
 
@@ -68,7 +66,6 @@ const ProjectsLayout = () => {
             projects.map((project) => (
               <TableData
                 key={project._id}
-                deleteHandler={handleProjectDelete}
                 editPath={`/projects/${project._id}`}
                 image={project.image}
                 title={project.title}

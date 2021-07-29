@@ -3,6 +3,7 @@
     --secondary-color: white;
     --primary-text-color: white;
     --secondary-text-color: black;
+    --danger-color: rgb(177, 2, 2);
     
   }
 /* button styles */
@@ -24,6 +25,11 @@
     background-color: var(--secondary-color);
     border: 1px solid var(--primary-color);
     color: var(--primary-color);
+  }
+  .btn--danger{
+    background-color: var(--danger-color);
+    color: var(--primary-text-color);
+    border: none;
   }
   .btn--medium{
     padding: 10px 20px;
