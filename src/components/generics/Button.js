@@ -18,5 +18,3 @@ export const Button = ({children, type, onClick, buttonStyle, buttonSize, href})
        </button>
     )
 }
-
-

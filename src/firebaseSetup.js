@@ -15,3 +15,4 @@ var firebaseConfig = {
   firebase.analytics();
 
   export default firebaseApp;
+  
