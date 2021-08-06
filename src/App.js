@@ -10,6 +10,7 @@ import ProjectsLayout from "./components/ProjectsLayout";
 import ProtectedRoute from "./components/ProtectedRoute";
 import BlogLayout from "./components/BlogLayout";
 import SingleProject from "./components/SingleProject";
+import SingleBlog from "./components/SingleBlog";
 
 
 library.add(fab, fas);
@@ -19,8 +20,9 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route exact path="/projects/:id" component={SingleProject} />
           <Route exact path="/" component={LoginPage} />
+          <Route exact path="/projects/:id" component={SingleProject} />
+          <Route exact path="/blogs/:id" component={SingleBlog} />
           <ProtectedRoute path="/dashboard"> <AboutLayout /> </ProtectedRoute> 
           <ProtectedRoute path="/projects"> <ProjectsLayout /> </ProtectedRoute>
           <ProtectedRoute path="/blogs"> <BlogLayout /> </ProtectedRoute>

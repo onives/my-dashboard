@@ -2,7 +2,7 @@ import React, {useState, useEffect, useContext} from 'react';
 import firebaseApp from '../firebaseSetup';
 import { Button } from './generics/Button';
 import DashboardNav from './DashboardNav';
-import "../css/forms.css"
+import "../css/forms.css";
 import Card from './generics/Card';
 import axios from 'axios';
 import AuthContext from './auth/auth-context';

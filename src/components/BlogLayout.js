@@ -61,6 +61,7 @@ const BlogLayout = () => {
             blogs.map((blog) => (
               <TableData
                 key={blog._id}
+                editPath={`/blogs/${blog._id}`}
                 image={blog.image}
                 title={blog.title}
                 description={blog.description}
