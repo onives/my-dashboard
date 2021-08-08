@@ -43,21 +43,20 @@ const SingleBlog = ({match, history}) => {
        
     };
 
-    const getBlog = async () => {
-        try {
-            const response = await axios.get(`${env.remoteApi}blogs/${blogId}`, {headers: { 'Authorization': `Bearer ${token}`}});
-            setImage(response.data.image);
-            setTitle(response.data.title);
-            setDescription(response.data.description);
-            setLink(response.data.link);
-        } catch (error) {
-            console.log('error', error);
-        }
-    }
-
     useEffect(() => {
+        const getBlog = async () => {
+            try {
+                const response = await axios.get(`${env.remoteApi}blogs/${blogId}`, {headers: { 'Authorization': `Bearer ${token}`}});
+                setImage(response.data.image);
+                setTitle(response.data.title);
+                setDescription(response.data.description);
+                setLink(response.data.link);
+            } catch (error) {
+                console.log('error', error);
+            }
+        }
         getBlog();
-    }, [blogId]);
+    }, [blogId, token]);
 
     const formSubmitHandler = async (e)=>{
         e.preventDefault();

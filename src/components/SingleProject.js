@@ -45,22 +45,22 @@ const SingleProject = ({match, history})=>{
         }
        
     };
-    const getProject = async () => {
-        try {
-            const response = await axios.get(`${env.remoteApi}projects/${projectId}`, {headers: { 'Authorization': `Bearer ${token}`}});
-            setImage(response.data.image);
-            setTitle(response.data.title);
-            setDescription(response.data.description);
-            setGithubLink(response.data.githubLink);
-            setSiteLink(response.data.siteLink);
-        } catch (error) {
-            console.log('error', error);
-        }
-    }
 
     useEffect(() => {
+        const getProject = async () => {
+            try {
+                const response = await axios.get(`${env.remoteApi}projects/${projectId}`, {headers: { 'Authorization': `Bearer ${token}`}});
+                setImage(response.data.image);
+                setTitle(response.data.title);
+                setDescription(response.data.description);
+                setGithubLink(response.data.githubLink);
+                setSiteLink(response.data.siteLink);
+            } catch (error) {
+                console.log('error', error);
+            }
+        }
         getProject();
-    }, [projectId]);
+    }, [projectId, token]);
 
     const formSubmitHandler = async (e) => {
         e.preventDefault();

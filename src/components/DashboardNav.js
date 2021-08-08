@@ -1,10 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext} from 'react';
 import DashboardGridItem from './DashboardGridItem';
 import { Button } from './generics/Button';
 import AuthContext from './auth/auth-context';
 import axios from 'axios';
 import env from 'react-dotenv';
-
 import '../css/dashboardCss.css';
 
 
@@ -32,8 +31,7 @@ const DashboardNav = () => {
         })
     }
 
-    return (
-            
+    return (   
         <div className='dashboardNav'>
             <Button buttonStyle='btn--outline' buttonSize='btn--medium' onClick={authCtx.onLogout}>Log out</Button>
             <Button buttonStyle='btn--danger' buttonSize='btn--small' onClick={handleDeleteAccount}>Delete account</Button>
