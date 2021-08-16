@@ -1,0 +1,50 @@
+[debug] [2021-08-16T12:16:18.534Z] ----------------------------------------------------------------------
+[debug] [2021-08-16T12:16:18.542Z] Command:       /usr/bin/node /usr/local/bin/firebase init
+[debug] [2021-08-16T12:16:18.544Z] CLI Version:   9.16.5
+[debug] [2021-08-16T12:16:18.545Z] Platform:      linux
+[debug] [2021-08-16T12:16:18.545Z] Node Version:  v10.19.0
+[debug] [2021-08-16T12:16:18.681Z] Time:          Mon Aug 16 2021 15:16:18 GMT+0300 (East Africa Time)
+[debug] [2021-08-16T12:16:18.682Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-08-16T12:16:19.060Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-08-16T12:16:19.060Z] > authorizing via signed-in user (olivenives63@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/nives/Desktop/my-dashboard
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  .firebaserc already has a default project, using my-dashboard-8a758. 
+[debug] [2021-08-16T12:17:59.421Z] > refreshing access token with scopes: []
+[debug] [2021-08-16T12:17:59.423Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-08-16T12:18:00.361Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Mon, 16 Aug 2021 12:18:00 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-08-16T12:18:00.461Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/my-dashboard-8a758 [none]
+[debug] [2021-08-16T12:18:02.240Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/my-dashboard-8a758 200
+[debug] [2021-08-16T12:18:02.241Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/my-dashboard-8a758 {"projectId":"my-dashboard-8a758","projectNumber":"634905266455","displayName":"my-dashboard","name":"projects/my-dashboard-8a758","resources":{"hostingSite":"my-dashboard-8a758","storageBucket":"my-dashboard-8a758.appspot.com","locationId":"us-central"},"state":"ACTIVE"}
+[info] 
+=== Hosting:github Setup
+[info] 
+[info] i  Detected a .git folder at /home/nives/Desktop/my-dashboard 
+[info] i  Authorizing with GitHub to upload your service account to a GitHub repository's secrets store. 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://github.com/login/oauth/authorize?client_id=89cf50f02ac6aaed3484&state=529609201&redirect_uri=http%3A%2F%2Flocalhost%3A9005&scope=read%3Auser%20repo%20public_repo
+[info] 
+[info] Waiting for authentication...
