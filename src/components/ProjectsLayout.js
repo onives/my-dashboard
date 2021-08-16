@@ -20,8 +20,7 @@ const ProjectsLayout = () => {
 
     axios.post(`${env.remoteApi}projects`, {image, title, description, githubLink, siteLink}, {headers: { 'Authorization': `Bearer ${token}`}})
     .then(res=>{
-      console.log(res)
-      
+
     })
     .catch(error=>{
       console.log(error)
@@ -32,7 +31,6 @@ const ProjectsLayout = () => {
 
     axios.get(`${env.remoteApi}projects`, {headers: { 'Authorization': `Bearer ${token}`}})
     .then(res=>{
-      console.log(res)
       setProjects(res.data)
     })
     .catch(error=>{

@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import { Button } from './generics/Button';
-// import firebase from 'firebase';
 import firebaseApp from '../firebaseSetup';
 
 

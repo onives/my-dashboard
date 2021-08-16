@@ -17,7 +17,6 @@ const AboutLayout = () => {
    
     axios.patch(`${env.remoteApi}user/me`, {bio}, {headers: { 'Authorization': `Bearer ${token}`}})
     .then(res=>{
-      console.log(res.data)
     })
     .catch(err=>{
       console.log(err)
@@ -28,7 +27,6 @@ const AboutLayout = () => {
   useEffect(()=>{
     axios.get(`${env.remoteApi}user/me`, {headers: { 'Authorization': `Bearer ${token}`}})
     .then(res=>{
-      console.log(res)
       setBio(res.data.bio)
     })
     .catch(error=>{

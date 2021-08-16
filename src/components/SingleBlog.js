@@ -67,9 +67,7 @@ const SingleBlog = ({match, history}) => {
         const data = { image: await enteredImage, title, description, link }
 
         try {
-            const response = await axios.patch(`${env.remoteApi}blogs/${blogId}`, data, {headers: { 'Authorization': `Bearer ${token}`}});
-            console.log("Updated Data ===>", response)
-
+            await axios.patch(`${env.remoteApi}blogs/${blogId}`, data, {headers: { 'Authorization': `Bearer ${token}`}});
             setLoading(false)
             setTimeout(()=>{
                 setSuccess(false)

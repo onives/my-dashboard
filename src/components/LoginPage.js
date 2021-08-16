@@ -51,8 +51,6 @@ const LoginPage = ({history})=>{
             axios.post(`${env.remoteApi}user/login`, {email, password})
             .then(res=>{
                 setLoading(false)
-                console.log(res)
-
                 setTimeout(()=>{
                     setSuccess(false)
                     history.replace('/dashboard')
@@ -76,7 +74,6 @@ const LoginPage = ({history})=>{
             axios.post(`${env.remoteApi}user/signup`, {fullName, email, password})
             .then(res=>{
                 setLoading(false)
-                console.log(res)
                 setTimeout(()=>{
                     setSuccess(false)
                     history.push('/dashboard')
@@ -86,7 +83,6 @@ const LoginPage = ({history})=>{
             })
             .catch(error =>{
                 setLoading(false)
-                console.log(error)
                 setTimeout(()=>{
                      setFailure(false)
                  }, 5000)

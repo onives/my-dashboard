@@ -71,9 +71,7 @@ const SingleProject = ({match, history})=>{
         const data = { image: await enteredImage, title, description, githubLink, siteLink }
 
         try {
-            const response = await axios.patch(`${env.remoteApi}projects/${projectId}`, data, {headers: { 'Authorization': `Bearer ${token}`}});
-            console.log("Updated Data ===>", response)
-
+            await axios.patch(`${env.remoteApi}projects/${projectId}`, data, {headers: { 'Authorization': `Bearer ${token}`}});
             setLoading(false)
             setTimeout(()=>{
                 setSuccess(false)

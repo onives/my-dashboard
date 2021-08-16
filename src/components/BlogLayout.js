@@ -19,7 +19,6 @@ const BlogLayout = () => {
 
     axios.post(`${env.remoteApi}blogs`, {image, title, description,link}, {headers: { 'Authorization': `Bearer ${token}`}})
     .then(res=>{
-      console.log(res)
     })
     .catch(error=>{
       console.log(error)
@@ -30,7 +29,6 @@ const BlogLayout = () => {
   useEffect(()=>{
     axios.get(`${env.remoteApi}blogs`, {headers: { 'Authorization': `Bearer ${token}`}})
     .then(res=>{
-      console.log(res)
       setBlogs(res.data)
     })
     .catch(error=>{
