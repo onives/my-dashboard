@@ -42,19 +42,8 @@ const BlogLayout = () => {
       <Card className='insideForm'>
         <Blogs onBlogSave={handleBlogSave} />
       </Card>
+      <h2>Your available blogs</h2>
       <div className="tabula-data">
-        <table>
-          <thead>
-            <tr>
-            <th><span>Image</span></th>
-              <th><span>Title</span></th>
-              <th><span>Description</span></th>
-              <th><span>Github Link</span></th>
-              <th><span>Site Link</span></th>
-              <th><span>View</span></th>
-            </tr>
-          </thead>
-          <tbody>
           {blogs.length &&
             blogs.map((blog) => (
               <TableData
@@ -66,8 +55,6 @@ const BlogLayout = () => {
                 siteLink={blog.link}
               />
             ))}
-          </tbody>
-        </table>
       </div>
     </div>
   );

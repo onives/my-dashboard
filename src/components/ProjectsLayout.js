@@ -47,20 +47,8 @@ const ProjectsLayout = () => {
       <Card className='insideForm'>
         <Projects onProjectSave={handleProjectSave} />
       </Card>
-    
+      <h2>Your available projects</h2>
       <div className="tabula-data">
-        <table>
-          <thead>
-            <tr>
-              <th><span>Image</span></th>
-              <th><span>Title</span></th>
-              <th><span>Description</span></th>
-              <th><span>Github Link</span></th>
-              <th><span>Site Link</span></th>
-              <th><span>View</span></th>
-            </tr>
-          </thead>
-          <tbody>
           {projects.length &&
             projects.map((project) => (
               <TableData
@@ -73,8 +61,6 @@ const ProjectsLayout = () => {
                 siteLink={project.siteLink}
               />
             ))}
-          </tbody>
-        </table>
       </div>
     </div>
   );

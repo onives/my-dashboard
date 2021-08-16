@@ -50,33 +50,6 @@ body{
     max-width: 50rem;
     margin: 2rem auto;
 }
-
-/* .control {
-    margin: 1rem 0;
-    display: flex;
-    align-items: stretch;
-    flex-direction: column;
-}
-
-.control label, .control input {
-    display: block;
-}
-
-.control label {
-    font-weight: bold;
-    flex: 1;
-    color: #464646;
-    margin-bottom: 0.5rem;
-}
-
-.control input {
-    flex: 3;
-    font: inherit;
-    padding: 0.35rem 0.35rem;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-} */
-
 .control input:focus {
     outline: none;
     border-color: #4f005f;
@@ -113,11 +86,11 @@ body{
     padding: 10px 0 10px 0;
     margin: 1px;  
 }
-@media (min-width: 768px) {
-    /* .control {
-        align-items: center;
-        flex-direction: row;
-    } */
+@media only screen and (max-width: 780px) {
+    .insideForm{
+        width: 98%;
+        margin: 2rem auto;
+    }
     
 }
 
