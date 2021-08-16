@@ -1,4 +1,4 @@
-import React, { useContext} from 'react';
+import React, { useContext, useState} from 'react';
 import DashboardGridItem from './DashboardGridItem';
 import { Button } from './generics/Button';
 import AuthContext from './auth/auth-context';
@@ -8,6 +8,7 @@ import '../css/dashboardCss.css';
 
 
 const DashboardNav = () => {
+    const [dropDown, setDropDown] = useState(false)
     const authCtx = useContext(AuthContext);
     const token = authCtx.token;
     const layoutInfo = [
@@ -30,11 +31,19 @@ const DashboardNav = () => {
             console.log(error)
         })
     }
+    const handleDropDown = ()=>{
+        setDropDown(!dropDown) 
+    }
 
     return (   
         <div className='dashboardNav'>
-            <Button buttonStyle='btn--outline' buttonSize='btn--medium' onClick={authCtx.onLogout}>Log out</Button>
-            <Button buttonStyle='btn--danger' buttonSize='btn--small' onClick={handleDeleteAccount}>Delete account</Button>
+            <div className="dropdown">
+                <button onClick={handleDropDown} className="dropbtn btn btn--outline btn--medium">Account</button>
+                <div className={dropDown? "show dropdown-content" : "dropdown-content"}>
+                    <Button buttonStyle='btn--outline' buttonSize='btn--small' onClick={authCtx.onLogout}>Log out</Button>
+                    <Button buttonStyle='btn--danger' buttonSize='btn--small' onClick={handleDeleteAccount}>Delete Account</Button>
+                </div>
+            </div>
             {layoutInfo.map(info => (
             <DashboardGridItem gridName={info.itemName} gridIcon={info.icon} path={info.path} key={info.id} />
         ))}</div>
