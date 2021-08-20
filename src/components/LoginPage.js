@@ -102,12 +102,13 @@ const LoginPage = ({history})=>{
                 { !isLogin && failure && <p className='unsuccessful-alert'>Your signup has failed</p>}
                 { isLogin && failure && <p className='unsuccessful-alert'>Invalid Login Credentials</p>}
                 {isLogin && success && <p className='successful-alert'>Your login has been sucessful</p>}
-                <form onSubmit = {submitHandler}>
+                
+                <form onSubmit = {submitHandler} >
                    { isLogin && <div>
                         <h3>Welcome back. Login to continue</h3>
                     </div>}
                     { !isLogin && <div>
-                        <h3>Welcome. Signup to create account</h3>
+                        <h3>Nives' dashboard. Signup to create account</h3>
                     </div>}
                    
 
@@ -115,6 +116,7 @@ const LoginPage = ({history})=>{
                         <label htmlFor="fullName_section">Enter Full Name: </label>
                         <input value={fullName} type='text' placeholder='Enter your full name' id='fullName_section'onChange={(e)=>setFullName(e.target.value)}/>
                     </div>}
+              
                     <div className={`input-div control ${emailIsValid === false ? 'invalid' : ''}`}>
                         <label htmlFor="email_section">Enter Email: </label>
                         <input value={email} type='text' placeholder='Enter your Email' id='email_section'onChange={handleEmailChange} onBlur={validateEmailHandler} />
@@ -135,6 +137,7 @@ const LoginPage = ({history})=>{
                         <span>Don't have an account? <Button buttonStyle='btn--outline' buttonSize='btn--small' onClick={()=>setIsLogin(false)}>signup</Button></span>
                     </div>}
                 </form>
+              
             </div>
         </Card>
     )

@@ -2,6 +2,13 @@
   text-align: center;
 }
 .center{
-  width: 30%;
-  margin: 8rem auto auto auto;
+  width: 20%;
+  margin: 9rem auto auto auto;
+}
+
+@media only screen and (max-width: 1024px){
+  .center{
+    width: 20%;
+    margin: 7rem auto auto auto;
+  }
 }

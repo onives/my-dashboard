@@ -42,7 +42,7 @@ const ProjectsLayout = () => {
   
 
   return (
-    <div>
+    <>
       <DashboardNav />
       <Card className='insideForm'>
         <Projects onProjectSave={handleProjectSave} />
@@ -62,7 +62,7 @@ const ProjectsLayout = () => {
               />
             ))}
       </div>
-    </div>
+    </>
   );
 };
 

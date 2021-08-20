@@ -35,7 +35,7 @@ const AboutLayout = () => {
   }, [token])
   
   return (
-    <div>
+    <>
       <DashboardNav/>
       <Card className='insideForm'>
         <About onAboutSave={handleAboutSave} />
@@ -43,7 +43,7 @@ const AboutLayout = () => {
       <div>
           <p>{bio}</p>
       </div>
-    </div>
+    </>
   );
 };
 

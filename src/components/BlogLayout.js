@@ -37,7 +37,7 @@ const BlogLayout = () => {
   }, [token]);
 
   return (
-    <div>
+    <>
       <DashboardNav />
       <Card className='insideForm'>
         <Blogs onBlogSave={handleBlogSave} />
@@ -56,7 +56,7 @@ const BlogLayout = () => {
               />
             ))}
       </div>
-    </div>
+    </>
   );
 };
 
