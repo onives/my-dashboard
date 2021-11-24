@@ -2,7 +2,7 @@
   background-color: rgb(41, 40, 40);
   display: flex;
   justify-content: space-around;
-  
+   
   
 }
 .dashboardNav>button{
@@ -54,3 +54,6 @@
   
 }
 
+.come{
+  color: black;
+}
